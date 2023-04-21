@@ -2,15 +2,15 @@ package de.softdeveloper.simplechat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import de.softdeveloper.simplechat.databinding.ActivityMainBinding
+import de.softdeveloper.simplechat.databinding.ActivityChatBinding
 
-class MainActivity : AppCompatActivity() {
+class ChatActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityChatBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
