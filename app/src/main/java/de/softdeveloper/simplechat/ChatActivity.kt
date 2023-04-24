@@ -1,11 +1,16 @@
 package de.softdeveloper.simplechat
 
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -29,7 +34,8 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val serviceIntent = Intent(this, NotificationService::class.java)
+        stopService(serviceIntent)
         userName = intent.getStringExtra("user") ?: "unbekannt"
         chatPartner = intent.getStringExtra("other") ?: "unbekannt"
 
@@ -55,6 +61,10 @@ class ChatActivity : AppCompatActivity() {
                 val map = snapshot.value as HashMap<*, *>
                 val user = map["user"].toString()
                 val message = map["message"].toString()
+
+                val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                manager.cancel(1)
+                manager.cancelAll()
 
                 if (user == userName) {
                     addMessage("Du: \n$message", 1)
@@ -82,16 +92,27 @@ class ChatActivity : AppCompatActivity() {
         })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val serviceIntent = Intent(this, NotificationService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent)
+//                applicationContext.startForegroundService(serviceIntent)
+        }
+    }
+
     private fun addMessage(message: String, type: Int) {
         val textView = TextView(this)
         textView.text = message
-        val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT)
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
         layoutParams.weight = 1f
-        if(type == 1){
+        if (type == 1) {
             layoutParams.gravity = Gravity.END
             textView.setBackgroundResource(R.drawable.bubble_out)
-        }else{
+        } else {
             layoutParams.gravity = Gravity.START
             textView.setBackgroundResource(R.drawable.bubble_in)
         }

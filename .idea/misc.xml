@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="jsonEditor">
+    <option name="stateMap">
+      <map>
+        <entry key="SimpleChat" value="{&#10;  &quot;publishers&quot;: [&#10;    &quot;Arthur A. Steven Helton&quot;&#10;  ],&#10;  &quot;classifications&quot;: {},&#10;  &quot;title&quot;: &quot;Harry Potter and the Sorcerer's Stone&quot;,&#10;  &quot;series&quot;: [&#10;    &quot;Harry Potter&quot;&#10;  ],&#10;  &quot;identifiers&quot;: {},&#10;  &quot;publish_date&quot;: &quot;1997&quot;,&#10;  &quot;key&quot;: &quot;/books/OL28055021M&quot;,&#10;  &quot;copyright_date&quot;: &quot;1998&quot;,&#10;  &quot;publish_places&quot;: [&#10;    &quot;U.S.A.&quot;&#10;  ],&#10;  &quot;works&quot;: [&#10;    {&#10;      &quot;key&quot;: &quot;/works/OL82563W&quot;&#10;    }&#10;  ],&#10;  &quot;type&quot;: {&#10;    &quot;key&quot;: &quot;/type/edition&quot;&#10;  },&#10;  &quot;number_of_pages&quot;: 309,&#10;  &quot;description&quot;: {&#10;    &quot;type&quot;: &quot;/type/text&quot;,&#10;    &quot;value&quot;: &quot;This book is about a boy whose parents die and he's sent to his aunt and uncle's house and he figures out he is a wizard and wins Grifindor in a soccer game on broomsticks.&quot;&#10;  },&#10;  &quot;latest_revision&quot;: 4,&#10;  &quot;revision&quot;: 4,&#10;  &quot;created&quot;: {&#10;    &quot;type&quot;: &quot;/type/datetime&quot;,&#10;    &quot;value&quot;: &quot;2020-05-16T22:41:23.609118&quot;&#10;  },&#10;  &quot;last_modified&quot;: {&#10;    &quot;type&quot;: &quot;/type/datetime&quot;,&#10;    &quot;value&quot;: &quot;2021-03-18T21:23:26.731681&quot;&#10;  }&#10;}" />
+      </map>
+    </option>
   </component>
 </project>
